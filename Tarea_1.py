@@ -56,10 +56,13 @@ def menu():
 
 def cargar():
     print("leer csv")
+
+
 with open("estoslibrs.csv", "r") as dato:
-        reader = csv.reader(dato)
-        for dato in reader:
-            print(dato)
+    reader = csv.reader(dato)
+    for dato in reader:
+        print(dato)
+
 
 def agregar():
     print("libro para agregar")
