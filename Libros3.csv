@@ -1,4 +1,4 @@
-Id,Title,Author,Genre,Isbn,Publisher
-10,"Beautiful and the Damned","Deb, Siddhartha",nonfiction,0684717581,Penguin
-20,"Farewell to Arms","Hemingway, Ernest",fiction,0099910101,Rupa
-77,"False Impressions","Archer,Jeffery",fiction,0684831481,Pan
+"Id","Titulo","Autor","Genero","Isbn","Editorial"
+"1","Beautiful and the Damned","Deb Siddhartha","drama","684717581","Penguin"
+"2","False Impression","Archer Jeffery","ficcion","684831481","Pan"
+"3","Farewell to Arms","Hemingway Ernest","ficcion","99910101","Rupa" 
