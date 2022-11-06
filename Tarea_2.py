@@ -38,3 +38,29 @@ if (opcion == 1):
     print("--------------------------------")
     for cont, value in enumerate(pokemon_generacion[generacion], start=1):
         print(cont, ".", value)
+
+elif (opcion == 2):
+
+    url2 = f'https://pokeapi.co/api/v2/pokemon-shape/'
+    response2 = requests.get(url2)
+    data2 = response2.json()
+    print("\nExisten las siguientes formas de pokemones:")
+    lista_formas = []
+    for num in range(len(data2["results"])):
+        lista_formas.append(data2["results"][num]["name"])
+    for n in lista_formas:
+        print(f"- {n}")
+
+    forma = input("\nEscriba la forma que desea buscar: ")
+    pokemon_forma = {forma: []}
+    url2 = f'https://pokeapi.co/api/v2/pokemon-shape/{forma}'
+    response2 = requests.get(url2)
+    data2 = response2.json()
+
+    for i in range(len(data2["pokemon_species"])):
+        pokemon_forma[forma].append(data2["pokemon_species"][i]["name"])
+
+    print(f"\nPokemones con la forma {forma}:")
+    print("--------------------------------")
+    for cont, value in enumerate(pokemon_forma[forma], start=1):
+        print(cont, ".", value)
