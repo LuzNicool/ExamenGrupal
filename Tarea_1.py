@@ -1,5 +1,7 @@
 import csv
 
+import time
+
 lista = list()
 
 
@@ -19,6 +21,7 @@ def menu():
     seleccion = 0
     while seleccion != 12:
         print("Bienvenid@ al menu:")
+        time.sleep(3)
         print("1.Cargar 3 libros")
         print("2.agregar libros")
         print("3.listar libro")
@@ -29,6 +32,7 @@ def menu():
         print("8.Buscar libros por número de autores.")
         print("9.Editar o actualizar datos de un libro ")
         print("10.Guardar libros en archivo csv o txt")
+        time.sleep(4)
         seleccion = int(input("Elija una opcion:"))
         if seleccion == 1:
             cargar()
@@ -66,6 +70,7 @@ with open("estoslibros.csv", "r") as dato:
 
 def agregar():
     print("libro para agregar")
+    time.sleep(3)
     libros = Libro()
     libros.id = int(input("ID: "))
     libros.titulo = input("Título: ")
@@ -79,6 +84,7 @@ def agregar():
 def listar():
     print("Listado de libros:")
     for libros in lista:
+        time.sleep(3)
         print(
             f"ID de libro: {libros.id}, Su titulo es {libros.titulo}, Género: {libros.genero}, ISBN: {libros.isbn}, Editorial: {libros.editorial}, Autores {libros.autores}"
         )
@@ -104,6 +110,7 @@ def ordenar():
 
 def tres_op():
     print("Resultados:")
+    time.sleep(3)
     aeg = input("buscar libro por autor, editorial o género: ")
     for libros in lista:
         if libros.autores == aeg or libros.editorial == aeg or libros.genero == aeg:
