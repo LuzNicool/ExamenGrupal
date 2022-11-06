@@ -58,7 +58,7 @@ def cargar():
     print("leer csv")
 
 
-with open("estoslibrs.csv", "r") as dato:
+with open("estoslibros.csv", "r") as dato:
     reader = csv.reader(dato)
     for dato in reader:
         print(dato)
