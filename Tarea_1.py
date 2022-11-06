@@ -123,6 +123,7 @@ def editar():
 
 def guardar():
     print("Guardando en el csv")
+    print("vuelve a otra opcion")
 
 
 def salir():
