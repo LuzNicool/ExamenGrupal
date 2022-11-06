@@ -91,7 +91,34 @@ elif (opcion == 3):
     for cont, value in enumerate(pokemon_habilidad[habilidad], start=1):
         print(cont, ".", value)
 
+elif (opcion == 4):
 
+    url4 = f'https://pokeapi.co/api/v2/pokemon-habitat/'
+    response4 = requests.get(url4)
+    data4 = response4.json()
+    print("\nExisten los siguientes habitats de pokemones:")
+    lista_habitats = []
+    for num in range(len(data4["results"])):
+        lista_habitats.append(data4["results"][num]["name"])
+    for n in lista_habitats:
+        print(f"- {n}")
+
+    habitat = input("\nEscriba el habitat en el que desea buscar: ")
+    pokemon_habitat = {habitat: []}
+    url4 = f'https://pokeapi.co/api/v2/pokemon-habitat/{habitat}'
+    response4 = requests.get(url4)
+    data4 = response4.json()
+
+    for i in range(len(data4["pokemon_species"])):
+        pokemon_habitat[habitat].append(data4["pokemon_species"][i]["name"])
+
+    print(f"\nPokemones del habitat {habitat}:")
+    print("--------------------------------")
+    for cont, value in enumerate(pokemon_habitat[habitat], start=1):
+        print(cont, ".", value)
+
+
+        
 
 
 
