@@ -91,6 +91,57 @@ elif (opcion == 3):
     for cont, value in enumerate(pokemon_habilidad[habilidad], start=1):
         print(cont, ".", value)
 
+elif (opcion == 4):
+
+    url4 = f'https://pokeapi.co/api/v2/pokemon-habitat/'
+    response4 = requests.get(url4)
+    data4 = response4.json()
+    print("\nExisten los siguientes habitats de pokemones:")
+    lista_habitats = []
+    for num in range(len(data4["results"])):
+        lista_habitats.append(data4["results"][num]["name"])
+    for n in lista_habitats:
+        print(f"- {n}")
+
+    habitat = input("\nEscriba el habitat en el que desea buscar: ")
+    pokemon_habitat = {habitat: []}
+    url4 = f'https://pokeapi.co/api/v2/pokemon-habitat/{habitat}'
+    response4 = requests.get(url4)
+    data4 = response4.json()
+
+    for i in range(len(data4["pokemon_species"])):
+        pokemon_habitat[habitat].append(data4["pokemon_species"][i]["name"])
+
+    print(f"\nPokemones del habitat {habitat}:")
+    print("--------------------------------")
+    for cont, value in enumerate(pokemon_habitat[habitat], start=1):
+        print(cont, ".", value)
+
+else:
+
+    url5 = f'https://pokeapi.co/api/v2/type/'
+    response5 = requests.get(url5)
+    data5 = response5.json()
+    print("\nExisten los siguientes tipos de pokemones:")
+    lista_tipos = []
+    for num in range(len(data5["results"])):
+        lista_tipos.append(data5["results"][num]["name"])
+    for n in lista_tipos:
+        print(f"- {n}")
+
+    tipo = input("\nEscriba el tipo de pokemon que desea buscar: ")
+    pokemon_tipo = {tipo: []}
+    url5 = f'https://pokeapi.co/api/v2/type/{tipo}'
+    response5 = requests.get(url5)
+    data5 = response5.json()
+
+    for i in range(len(data5["pokemon"])):
+        pokemon_tipo[tipo].append(data5["pokemon"][i]["pokemon"]["name"])
+
+    print(f"\nPokemones del tipo {tipo}:")
+    print("--------------------------------")
+    for cont, value in enumerate(pokemon_tipo[tipo], start=1):
+        print(cont, ".", value)
 
 
 
