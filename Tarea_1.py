@@ -58,7 +58,7 @@ def cargar():
     print("leer csv")
 
 
-with open("estoslibrs.csv", "r") as dato:
+with open("Libros3.csv", "r") as dato:
     reader = csv.reader(dato)
     for dato in reader:
         print(dato)
@@ -123,6 +123,7 @@ def editar():
 
 def guardar():
     print("Guardando en el csv")
+    print("vuelve a otra opcion")
 
 
 def salir():
