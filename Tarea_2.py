@@ -64,3 +64,37 @@ elif (opcion == 2):
     print("--------------------------------")
     for cont, value in enumerate(pokemon_forma[forma], start=1):
         print(cont, ".", value)
+
+elif (opcion == 3):
+
+    url3 = f'https://pokeapi.co/api/v2/ability/'
+    response3 = requests.get(url3)
+    data3 = response3.json()
+    print("\nExisten las siguientes habilidades de pokemones:")
+    lista_habilidades = []
+    for num in range(len(data3["results"])):
+        lista_habilidades.append(data3["results"][num]["name"])
+    for n in lista_habilidades:
+        print(f"- {n}")
+
+    habilidad = input("\nEscriba la habilidad que desea buscar: ")
+    pokemon_habilidad = {habilidad: []}
+    url3 = f'https://pokeapi.co/api/v2/ability/{habilidad}'
+    response3 = requests.get(url3)
+    data3 = response3.json()
+
+    for i in range(len(data3["pokemon"])):
+        pokemon_habilidad[habilidad].append(data3["pokemon"][i]["pokemon"]["name"])
+
+    print(f"\nPokemones con la habilidad {habilidad}:")
+    print("--------------------------------")
+    for cont, value in enumerate(pokemon_habilidad[habilidad], start=1):
+        print(cont, ".", value)
+
+
+
+
+
+
+
+
