@@ -18,3 +18,23 @@ while (True):
     finally:
         if (opcion == 1 or opcion == 2 or opcion == 3 or opcion == 4 or opcion == 5):
             break
+
+if (opcion == 1):
+
+    print("Existen las siguientes generaciones de pokemones:")
+    for num in range(8):
+        print(f"- Generación {num + 1}")
+
+    generacion = int(input("\nEscriba el número de la generación que desea buscar (Del 1-8): "))
+    pokemon_generacion = {generacion: []}
+    url1 = f'https://pokeapi.co/api/v2/generation/{generacion}'
+    response1 = requests.get(url1)
+    data1 = response1.json()
+
+    for i in range(len(data1["pokemon_species"])):
+        pokemon_generacion[generacion].append(data1["pokemon_species"][i]["name"])
+
+    print(f"\nPokemones de la generación {generacion}:")
+    print("--------------------------------")
+    for cont, value in enumerate(pokemon_generacion[generacion], start=1):
+        print(cont, ".", value)
